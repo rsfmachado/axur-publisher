@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Validation</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+	    <h1>Validation Message</h1>
+	     <form action="#" th:action="@{/publisher/validation}" th:object="${clientURL}" method="post">
+                <div class="form-group">
+                    <label for="client">Client</label>:
+                    <input type="text" id="client" name="client" class="form-control" autofocus="autofocus" th:field="*{client}">
+                </div>
+                <div class="form-group">
+                    <label for="url">URL</label>:
+                    <input type="text" id="url" name="url" class="form-control" th:field="*{url}">
+                </div>
+                <div class="form-group">
+                    <label for="correlationID">Correlation Id</label>:
+                    <input type="text" id="correlationID" name="correlationID" class="form-control" th:field="*{correlationId}">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="insertion-submit" id="insertion-submit" class="form-control btn btn-info" value="Validate">
+                        </div>
+                    </div>
+                </div>
+            </form>
+			<span th:text="${resultMessage}"></span>
+	</div>
+</body>
+</html>

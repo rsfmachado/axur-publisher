@@ -1,0 +1,35 @@
+server:
+  port: 8080
+  
+spring:
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    servlet:
+      content-type: text/html
+    enabled: true
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    # excluded-view-names:
+    # template-resolver-order:
+    # view-names:
+
+  rabbitmq:
+    host: 172.17.0.2
+    port: 5672
+    virtual-host: /
+    username: guest
+    password: guest
+      
+logging:
+  file: /tmp/axur_publisher.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    root: INFO
+    com.publisher: DEBUG
+    org.springframework.web: INFO

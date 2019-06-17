@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Insertion</title>
+</head>
+<body>
+	<div layout:fragment="content" th:remove="tag">
+	    <h1>Insertion Message</h1>
+	     <form action="#" th:action="@{/publisher/insertion}" th:object="${regexPattern}" method="post">
+                <div class="form-group">
+                    <label for="client">Client</label>:
+                    <input type="text" id="client" name="client" class="form-control" autofocus="autofocus" th:field="*{client}">
+                </div>
+                <div class="form-group">
+                    <label for="pattern">Pattern</label>:
+                    <input type="text" id="pattern" name="pattern" class="form-control" th:field="*{regex}">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="insertion-submit" id="insertion-submit" class="form-control btn btn-info" value="Insert">
+                        </div>
+                    </div>
+                </div>
+            </form>
+			<span th:text="${resultMessage}"></span>
+	</div>
+</body>
+</html>
